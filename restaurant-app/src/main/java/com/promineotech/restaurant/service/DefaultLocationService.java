@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.promineotech.restaurant.dao.LocationDao;
 import com.promineotech.restaurant.entity.Location;
@@ -24,6 +25,7 @@ public class DefaultLocationService implements LocationService {
 	 @Autowired
 	  private LocationDao locationDao;
 	
+	@Transactional(readOnly=true)
 	@Override
 	public List<Location> fetchLocations(String streetAddress) {
 		log.info("The fetchLocations method was called with streetAddress={}");

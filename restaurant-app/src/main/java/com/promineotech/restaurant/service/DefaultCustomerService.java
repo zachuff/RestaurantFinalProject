@@ -26,7 +26,6 @@ public class DefaultCustomerService implements CustomerService {
 	private CustomerDao customerDao;
 	
 	@Transactional(readOnly=true)
-
 	@Override
 	public List<Customer> fetchCustomers(String firstName) {
 		log.info("The fetchCustomers method was called with firstName={}");
