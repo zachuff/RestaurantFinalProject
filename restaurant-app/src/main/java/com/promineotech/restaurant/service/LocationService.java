@@ -17,6 +17,6 @@ public interface LocationService {
 	 * @param streetAddress
 	 * @return
 	 */
-	List<Location> fetchLocation(String streetAddress);
+	List<Location> fetchLocations(String streetAddress);
 
 }

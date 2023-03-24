@@ -69,7 +69,7 @@ public interface LocationController {
 	  )
 	  //@formatter:on
 	     
-	 //This is what will return a list of customers 
+	 //This will return a list of locations 
 	  @GetMapping 
 	  @ResponseStatus(code = HttpStatus.OK)
 	  List<Location> fetchLocations(

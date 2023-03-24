@@ -111,7 +111,6 @@ public class DefaultRestaurantDao implements RestaurantDao {
 	        .build());
 	  }
 
-	  //Delete method to delete a dress
 	  @Override
 	  public Optional<Restaurant> deleteRestaurant(Long restaurantPK) {
 	    //@formatter:off
@@ -125,7 +124,7 @@ public class DefaultRestaurantDao implements RestaurantDao {
 	    
 	    jdbcTemplate.update(sql, params); 
 	    
-	    //shows the dressPK that was deleted
+	    //shows the restaurantPK that was deleted
 	    return Optional.ofNullable(Restaurant.builder()
 	        .restaurantPK(restaurantPK)
 	        .build());

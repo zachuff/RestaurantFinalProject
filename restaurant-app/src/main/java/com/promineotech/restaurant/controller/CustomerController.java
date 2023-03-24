@@ -67,7 +67,7 @@ public interface CustomerController {
 	  )
 	  //@formatter:on
 	     
-	 //This is what will return a list of customers 
+	 //This will return a list of customers 
 	  @GetMapping 
 	  @ResponseStatus(code = HttpStatus.OK)
 	  List<Customer> fetchCustomers(

@@ -26,7 +26,7 @@ public class BasicLocationController implements LocationController {
 	  @Override
 	  public List<Location> fetchLocations(String streetAddress) {
 	    log.info("streetAddress={}", streetAddress);
-	    return locationService.fetchLocation(streetAddress);
+	    return locationService.fetchLocations(streetAddress);
 	  }
 
 

@@ -171,7 +171,7 @@ public interface RestaurantController {
 		     }
 		  )
 		     
-		 //This will update the price of a dress
+		 //This will update the name of a restaurant
 		  @PutMapping 
 		  @ResponseStatus(code = HttpStatus.OK)
 		  Optional<Restaurant> updateRestaurantName(
@@ -215,7 +215,7 @@ public interface RestaurantController {
 		     }
 		  )
 		     
-		 //This will delete a dress dress
+		 //This will delete a restaurant
 		  @DeleteMapping 
 		  @ResponseStatus(code = HttpStatus.OK)
 		  Optional<Restaurant> deleteRestaurant(
