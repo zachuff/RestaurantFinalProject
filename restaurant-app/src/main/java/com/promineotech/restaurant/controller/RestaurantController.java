@@ -208,7 +208,7 @@ public interface RestaurantController {
 		 
 		      parameters = {
 		          @Parameter(
-		              name = "restauarantPK", 
+		              name = "restaurantPK", 
 		              allowEmptyValue = false, 
 		              required = true, 
 		              description = "The restaurantPK (i.e., '8')"), 
@@ -220,7 +220,7 @@ public interface RestaurantController {
 		  @ResponseStatus(code = HttpStatus.OK)
 		  Optional<Restaurant> deleteRestaurant(
 		      @RequestParam (required = true)
-		      Long dressPK);
+		      Long restaurantPK);
 		
 	// @formatter:on
 }
