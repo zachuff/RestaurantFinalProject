@@ -100,10 +100,10 @@ public interface RestaurantController {
 		 
 		      parameters = {
 		          @Parameter(
-		              name = "restaurantID", 
+		              name = "restaurantPK", 
 		              allowEmptyValue = false, 
 		              required = true, 
-		              description = "The restaurantID (i.e., '7')"), 
+		              description = "The restaurantPK (i.e., '7')"), 
 		          @Parameter(
 		              name = "restaurantName",
 		              allowEmptyValue = false,

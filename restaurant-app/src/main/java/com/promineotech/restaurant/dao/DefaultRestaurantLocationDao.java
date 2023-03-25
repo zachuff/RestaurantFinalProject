@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
-import com.promineotech.restaurant.entity.Location;
+import com.promineotech.restaurant.entity.RestaurantLocation;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,40 +23,37 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Component
 @Slf4j
-public class DefaultLocationDao implements LocationDao {
-
+public class DefaultRestaurantLocationDao implements RestaurantLocationDao {
 	@Autowired
 	  private NamedParameterJdbcTemplate jdbcTemplate;
 	
 	  @Override
-	  public List<Location> fetchLocations (String streetAddress) {
-	    log.info("DAO: streetAddress={}", streetAddress);
+	  public List<RestaurantLocation> fetchRestaurantLocations (int menuId) {
+	    log.info("DAO: menuId={}", menuId);
 	 
 	    //@formatter:off
 	    String sql =""
 	        + "SELECT * "
-	        + "FROM location "
-	        + "WHERE street_address = :street_address";
+	        + "FROM restaurant_location "
+	        + "WHERE menu_id = :menu_id";
 	    //@formatter:on
 	    
 	    Map<String, Object> params = new HashMap<>();
-	    params.put("street_address", streetAddress);
+	    params.put("menu_id", menuId);
 	    
 	    return jdbcTemplate.query(sql, params, new RowMapper<>() {
 	      
 	      @Override
-	      public Location mapRow(ResultSet rs, int rowNum) throws SQLException {
+	      public RestaurantLocation mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        //formatter:off
-	        return Location.builder()
-	            .locationPK(rs.getLong("location_pk"))
-	            .locationId(rs.getInt("location_id"))
-	            .streetAddress(rs.getString("street_address"))
-	            .city(rs.getString("city"))
-	            .state(rs.getString("state"))
+	        return RestaurantLocation.builder()
+	            .customerId(rs.getInt("customer_id"))
+	            .menuId(rs.getInt("menu_id"))
 	            .build();
 	      } });
 	      
 	      
 	    
 	  }
+
 }
