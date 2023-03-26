@@ -69,9 +69,9 @@ public class DefaultRestaurantDao implements RestaurantDao {
 	    //@formatter:off
 	    String sql = ""
 	        + "INSERT INTO restaurant ("
-	        + "restaurant_id, restaurant_name, menu_id, customer_id"
+	        + "restaurant_pk, restaurant_id, restaurant_name, menu_id, customer_id"
 	        + ") VALUES ("
-	        + ":restaurant_id, :restaurant_name, :menu_id, :customer_id)";
+	        + ":restaurant_pk, :restaurant_id, :restaurant_name, :menu_id, :customer_id)";
 	    //@formatter:on
 	    
 	    Map<String, Object> params = new HashMap<>();
@@ -114,21 +114,21 @@ public class DefaultRestaurantDao implements RestaurantDao {
 	  }
 
 	  @Override
-	  public Optional<Restaurant> deleteRestaurant(Long restaurantPK) {
+	  public Optional<Restaurant> deleteRestaurant(int restaurantId) {
 	    //@formatter:off
 	    String sql = ""
 	        + "DELETE FROM restaurant WHERE "
-	        + "restaurant_pk = :restaurant_pk";
+	        + "restaurant_id = :restaurant_id";
 	    //@formatter:on
 	    
 	    Map <String, Object> params = new HashMap<>();
-	    params.put("restaurant_pk", restaurantPK);
+	    params.put("restaurant_pk", restaurantId);
 	    
 	    jdbcTemplate.update(sql, params); 
 	    
 	    //shows the restaurantPK that was deleted
 	    return Optional.ofNullable(Restaurant.builder()
-	        .restaurantPK(restaurantPK)
+	        .restaurantId(restaurantId)
 	        .build());
 	  }
 

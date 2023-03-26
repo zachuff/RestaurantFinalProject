@@ -100,11 +100,6 @@ public interface RestaurantController {
 		 
 		      parameters = {
 		          @Parameter(
-		              name = "restaurantPK", 
-		              allowEmptyValue = false, 
-		              required = true, 
-		              description = "The restaurantPK (i.e., '7')"), 
-		          @Parameter(
 		              name = "restaurantName",
 		              allowEmptyValue = false,
 		              required = true,
@@ -126,7 +121,8 @@ public interface RestaurantController {
 		  @PostMapping 
 		  @ResponseStatus(code = HttpStatus.CREATED)
 		  Optional<Restaurant> createRestaurant(
-		      @RequestParam (required = true)
+			
+			  @RequestParam (required = true)
 		      int restaurantID,
 		      @RequestParam (required = true)
 		      String restaurantName,
@@ -137,7 +133,7 @@ public interface RestaurantController {
 		  
 		  @Operation(
 		      summary = "Update the name of a restaurant",
-		      description = "Update the name of a restaurant using the required restaurantID",
+		      description = "Update the name of a restaurant using the required restaurantId",
 		      responses = {
 		          @ApiResponse(
 		              responseCode = "200", 
@@ -182,7 +178,7 @@ public interface RestaurantController {
 		  
 		  @Operation(
 		      summary = "Delete a restaurant",
-		      description = "Delete a restaurant using the required restaurantPK",
+		      description = "Delete a restaurant using the required restaurantId",
 		      responses = {
 		          @ApiResponse(
 		              responseCode = "200", 
@@ -208,10 +204,10 @@ public interface RestaurantController {
 		 
 		      parameters = {
 		          @Parameter(
-		              name = "restaurantPK", 
+		              name = "restaurantId", 
 		              allowEmptyValue = false, 
 		              required = true, 
-		              description = "The restaurantPK (i.e., '8')"), 
+		              description = "The restaurantId (i.e., '8')"), 
 		     }
 		  )
 		     
@@ -220,7 +216,7 @@ public interface RestaurantController {
 		  @ResponseStatus(code = HttpStatus.OK)
 		  Optional<Restaurant> deleteRestaurant(
 		      @RequestParam (required = true)
-		      Long restaurantPK);
+		      int restaurantId);
 		
 	// @formatter:on
 }

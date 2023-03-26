@@ -20,6 +20,6 @@ public interface RestaurantDao {
 
 	Optional<Restaurant> updateRestaurantName(int restaurantId, String restaurantName);
 
-	Optional<Restaurant> deleteRestaurant(Long restaurantPK);
+	Optional<Restaurant> deleteRestaurant(int restaurantId);
 
 }

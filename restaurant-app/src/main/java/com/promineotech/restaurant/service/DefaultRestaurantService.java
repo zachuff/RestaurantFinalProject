@@ -46,9 +46,9 @@ public class DefaultRestaurantService implements RestaurantService {
 	}
 
 	@Override
-	public Optional<Restaurant> deleteRestaurant(Long restaurantPK) {
+	public Optional<Restaurant> deleteRestaurant(int restaurantId) {
 		
-		return restaurantDao.deleteRestaurant(restaurantPK);
+		return restaurantDao.deleteRestaurant(restaurantId);
 	}
 
 }

@@ -15,8 +15,7 @@ import lombok.Data;
 @Builder
 public class Restaurant {
 
-	private Long restaurantPK;
-	
+
 	private int restaurantId;
 
 	private String restaurantName;

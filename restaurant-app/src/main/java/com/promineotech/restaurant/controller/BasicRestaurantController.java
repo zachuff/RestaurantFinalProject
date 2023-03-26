@@ -46,9 +46,9 @@ public class BasicRestaurantController implements RestaurantController {
 	}
 
 	@Override
-	public Optional<Restaurant> deleteRestaurant(Long restaurantPK) {
+	public Optional<Restaurant> deleteRestaurant(int restaurantId) {
 		// TODO Auto-generated method stub
-		return restaurantService.deleteRestaurant(restaurantPK);
+		return restaurantService.deleteRestaurant(restaurantId);
 	}
 
 }
